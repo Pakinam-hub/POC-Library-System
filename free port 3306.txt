@@ -1,0 +1,1 @@
+Get-NetTCPConnection -LocalPort 3306 | Where-Object {$_.OwningProcess -ne $PID} | Select-Object -ExpandProperty OwningProcess | ForEach-Object { Stop-Process -Id $_ -Force }
